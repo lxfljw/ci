@@ -2,7 +2,7 @@
  * @Author: luxiaofeng
  * @Date: 2020-09-24 21:27:08
  * @LastEditors: luxiaofeng
- * @LastEditTime: 2020-09-24 21:58:09
+ * @LastEditTime: 2020-09-24 22:23:26
  * @Description: webhooks 核心
  */
 
@@ -15,7 +15,7 @@ http
   .createServer(function (req, res) {
     handler(req, res, function (err) {
       res.statusCode = 404;
-      res.end("没有此路经!");
+      res.end("没有此路经!", "utf-8");
     });
   })
   .listen(port);
@@ -46,3 +46,4 @@ function rumCommand(cmd, args, callback) {
     callback(response);
   });
 }
+console.log(`服务启动${port}`);
