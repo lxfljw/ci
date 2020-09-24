@@ -2,7 +2,7 @@
  * @Author: luxiaofeng
  * @Date: 2020-09-24 21:27:08
  * @LastEditors: luxiaofeng
- * @LastEditTime: 2020-09-24 22:53:22
+ * @LastEditTime: 2020-09-24 22:58:36
  * @Description: webhooks 核心
  */
 
@@ -14,7 +14,8 @@ var handler = createHandler({ path: '/pushCode', secret: '123' }) // 在代码�
 http.createServer(function (req, res) {
  handler(req, res, function (err) {
   res.statusCode = 404;
-  res.end(err)
+  console.error(err);
+  res.end('no such location')
  })
 }).listen(7777)
 
