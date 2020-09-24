@@ -2,13 +2,13 @@
  * @Author: luxiaofeng
  * @Date: 2020-09-24 21:27:08
  * @LastEditors: luxiaofeng
- * @LastEditTime: 2020-09-24 22:23:26
+ * @LastEditTime: 2020-09-24 22:29:14
  * @Description: webhooks 核心
  */
 
 const http = require("http");
 const createHandler = require("github-webhook-handler");
-const handler = createHandler({ path: "pushCode", secret: "" });
+const handler = createHandler({ path: "pushCode", secret: "blogPush" });
 const port = 3000;
 const { spawn } = require("child_process");
 http
