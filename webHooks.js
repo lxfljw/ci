@@ -2,14 +2,14 @@
  * @Author: luxiaofeng
  * @Date: 2020-09-24 21:27:08
  * @LastEditors: luxiaofeng
- * @LastEditTime: 2020-09-24 22:45:27
+ * @LastEditTime: 2020-09-24 22:47:23
  * @Description: webhooks 核心
  */
 
 // autoBuild.js
 var http = require('http')
 var spawn = require('child_process').spawn
-var createHandler = require('github-Webhooks-handler')
+var createHandler = require('github-webhook-handler')
 var handler = createHandler({ path: '/pushCode', secret: '123' }) // 在代码仓库的 Webhooks 选项处配置
 http.createServer(function (req, res) {
  handler(req, res, function (err) {
