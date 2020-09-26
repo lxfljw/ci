@@ -2,15 +2,15 @@
  * @Author: luxiaofeng
  * @Date: 2020-09-24 21:27:08
  * @LastEditors: luxiaofeng
- * @LastEditTime: 2020-09-24 22:58:36
+ * @LastEditTime: 2020-09-26 11:08:04
  * @Description: webhooks 核心
  */
 
 // autoBuild.js
-var http = require('http')
-var spawn = require('child_process').spawn
-var createHandler = require('github-webhook-handler')
-var handler = createHandler({ path: '/pushCode', secret: '123' }) // 在代码仓库的 Webhooks 选项处配置
+const http = require('http')
+const spawn = require('child_process').spawn
+const createHandler = require('github-webhook-handler')
+const handler = createHandler({ path: '/pushCode', secret: '123' }) // 在代码仓库的 Webhooks 选项处配置
 http.createServer(function (req, res) {
  handler(req, res, function (err) {
   res.statusCode = 404;
@@ -34,8 +34,8 @@ handler.on('push', function (event) {
 })
 
 function rumCommand( cmd, args, callback ) {
-  var child = spawn( cmd, args )
-  var response = ''
+  const child = spawn( cmd, args )
+  let response = ''
   child.stdout.on('data', function( buffer ){ response += buffer.toString(); })
   child.stdout.on('end', function(){ callback( response ) })
 }
