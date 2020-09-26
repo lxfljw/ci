@@ -2,7 +2,7 @@
  * @Author: luxiaofeng
  * @Date: 2020-09-24 21:27:08
  * @LastEditors: luxiaofeng
- * @LastEditTime: 2020-09-26 11:08:04
+ * @LastEditTime: 2020-09-26 18:47:43
  * @Description: webhooks 核心
  */
 
@@ -11,13 +11,14 @@ const http = require('http')
 const spawn = require('child_process').spawn
 const createHandler = require('github-webhook-handler')
 const handler = createHandler({ path: '/pushCode', secret: '123' }) // 在代码仓库的 Webhooks 选项处配置
+const port = 7777
 http.createServer(function (req, res) {
  handler(req, res, function (err) {
   res.statusCode = 404;
   console.error(err);
   res.end('no such location')
  })
-}).listen(7777)
+}).listen(port)
 
 handler.on('error', function (err) {
  console.error('Error:', err.message)
@@ -41,4 +42,4 @@ function rumCommand( cmd, args, callback ) {
 }
 
 
-console.log(`服务启动7777`);
+console.log(`服务启动,端口:${port}`);
