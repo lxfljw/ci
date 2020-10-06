@@ -2,7 +2,7 @@
  * @Author: luxiaofeng
  * @Date: 2020-09-24 21:27:08
  * @LastEditors: luxiaofeng
- * @LastEditTime: 2020-10-06 21:13:05
+ * @LastEditTime: 2020-10-07 00:30:25
  * @Description: webhooks 核心
  */
 
@@ -14,7 +14,7 @@ const handler = createHandler({ path: '/pushCode', secret: '123' }) // 在代码
 const port = 7777
 http.createServer(function (req, res) {
   if (req) {
-    res.write('<h1>hello world2</h1>', 'utf-8')
+    res.write('<h1>hello ci 00:30</h1>', 'utf-8')
     rumCommand('sh', ['./autoBuild.sh'], function( txt ) { // 执行 autoBuild.sh 脚本文件
       console.log(txt)
      })

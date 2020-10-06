@@ -2,7 +2,7 @@
  # @Author: luxiaofeng
  # @Date: 2020-09-24 21:26:00
  # @LastEditors: luxiaofeng
- # @LastEditTime: 2020-10-07 00:15:33
+ # @LastEditTime: 2020-10-07 00:29:47
  # @Description: file content
 ### 
 
@@ -15,9 +15,10 @@
 # cd ./admin/static
 # cnpm i
 # npm start
+cd ../blog/admin/server
 git pull
 sudo docker container stop admin-server
 sudo docker rm -f admin-server
 sudo docker image rm admin-server
-sudo docker image build -t admin-server ../blog/admin/server
+sudo docker image build -t admin-server .
 sudo docker run --name="admin-server" -d -p 8000:3000 admin-server 
