@@ -2,7 +2,7 @@
  * @Author: luxiaofeng
  * @Date: 2020-09-24 21:27:08
  * @LastEditors: luxiaofeng
- * @LastEditTime: 2020-09-26 18:47:43
+ * @LastEditTime: 2020-10-06 21:13:05
  * @Description: webhooks 核心
  */
 
@@ -13,6 +13,12 @@ const createHandler = require('github-webhook-handler')
 const handler = createHandler({ path: '/pushCode', secret: '123' }) // 在代码仓库的 Webhooks 选项处配置
 const port = 7777
 http.createServer(function (req, res) {
+  if (req) {
+    res.write('<h1>hello world2</h1>', 'utf-8')
+    rumCommand('sh', ['./autoBuild.sh'], function( txt ) { // 执行 autoBuild.sh 脚本文件
+      console.log(txt)
+     })
+  }
  handler(req, res, function (err) {
   res.statusCode = 404;
   console.error(err);
