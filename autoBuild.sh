@@ -2,19 +2,10 @@
  # @Author: luxiaofeng
  # @Date: 2020-09-24 21:26:00
  # @LastEditors: luxiaofeng
- # @LastEditTime: 2020-10-07 00:29:47
+ # @LastEditTime: 2020-10-07 19:54:38
  # @Description: file content
 ### 
 
-#  autoBuild.sh
-#! /bin/bash
-# cd ../blog
-# git reset --hard origin/master
-# git clean -f
-# git pull
-# cd ./admin/static
-# cnpm i
-# npm start
 cd ../blog/admin/server
 git pull
 sudo docker container stop admin-server
